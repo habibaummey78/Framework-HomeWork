@@ -26,6 +26,7 @@ public class BaseClass {
 		driver.get("https://www.samsung.com/us/");
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
 //instantiate homepage
 		homepage = new HomePage(driver);
 
