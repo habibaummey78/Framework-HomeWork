@@ -19,9 +19,9 @@ public class HomePage {
 
 	@FindBy(xpath = "//a[text()='Skip to Main Content']")
 
-	WebElement skipToMainContentElement;
+	WebElement skipToMainContent;
 
-	private WebElement skipToMainContent;
+
 
 	public void clickSkipToMainContent() throws InterruptedException {
 		Thread.sleep(3000);
