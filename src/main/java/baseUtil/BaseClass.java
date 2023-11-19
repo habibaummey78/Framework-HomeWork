@@ -10,32 +10,35 @@ import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
 
 public class BaseClass {
-	public WebDriver driver;
+	// public WebDriver driver;
+	public ChromeDriver driver;
 	public HomePage homepage;
 
 	@BeforeMethod
 	public void setUp() {
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Habib\\eclipse-workspace\\com.samsung\\driver\\chromedriver.exe");
+		// System.setProperty("webdriver.chrome.driver",
+		// "C:\\Users\\Habib\\eclipse-workspace\\com.samsung\\driver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/driver/chromedriver.exe");
 
 		// Instantiate the driver
 		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		// driver.manage().window().maximize();
+
+		// fullscreen added
+
+		driver.manage().window().fullscreen();
 		driver.manage().deleteAllCookies();
 		driver.get("https://www.samsung.com/us/");
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
-//instantiate homepage
+		// instantiate homepage
 		homepage = new HomePage(driver);
-
 	}
 
 	@AfterMethod
 	public void tearUp() {
-
 		driver.quit();
 	}
-
 }
